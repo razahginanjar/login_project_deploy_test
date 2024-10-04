@@ -1,0 +1,33 @@
+services:
+  postgres:
+    container_name: postgres_gf_image
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Razahraden24
+      PG_DATA: /var/lib/postgresql/data
+      POSTGRES_DB: image_gf
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5433:5432"
+    networks:
+      - spring-demo
+    restart: unless-stopped
+
+  iog-api:
+    container_name: iog-api
+    image: iog/iog:1.0.0
+    ports:
+      - "8181:8181"
+    networks:
+      - spring-demo
+    depends_on:
+      - postgres
+networks:
+  spring-demo:
+    driver: bridge
+
+volumes:
+  postgres:
+    driver: local

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.razahDev</groupId>
 	<artifactId>login_test</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>login_test</name>
 	<description>deploy login demo</description>
 	<url/>
